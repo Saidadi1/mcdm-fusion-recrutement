@@ -1,0 +1,460 @@
+{
+  "poids": {
+    "AHP": [
+      0.39520638153786014,
+      0.2390182975296114,
+      0.16817213016359836,
+      0.19760319076893004
+    ],
+    "AHP_CR": 0.022461862057089454,
+    "AHP_lambda": 4.0606470275541415,
+    "BWM": [
+      0.4193548387096774,
+      0.22580645161290325,
+      0.12903225806451613,
+      0.2258064516129032
+    ],
+    "BWM_ratio": 0.032258064516129004,
+    "BWM_xi": 0.032258064516129004,
+    "AHP_incoherent_CR": 1.467185723246767,
+    "criteres": [
+      "technique",
+      "soft_skills",
+      "experience",
+      "adequation"
+    ]
+  },
+  "reps": 30,
+  "scenarios": {
+    "S1 Nominal": "Agents fiables, peu de conflit, utilité additive.",
+    "S2 Conflit élevé": "Probabilité de panne des agents augmentée de +25 points.",
+    "S3 Agent surconfiant": "L'agent « Analyse CV » est très bruité mais émet des masses quasi catégoriques ; le recruteur lui déclare une fiabilité de 0,9.",
+    "S4 Ignorance forte": "30 % de profils incomplets et ignorance des agents augmentée de +0,25.",
+    "S5 Agents biaisés": "Analyse CV (−0,15) et Manager (−0,08) sous-évaluent le groupe B.",
+    "S6 Interactions": "Utilité vraie non additive : redondance technique/expérience (I=−0,2), complémentarité soft skills/adéquation (I=+0,2)."
+  },
+  "stabilite_llm": {
+    "LLM": {
+      "std_moyen_entre_executions": 0.04081348495429888,
+      "accord_label_entre_executions": 0.639269406392694,
+      "confiance_moyenne": 0.8105085178187552,
+      "exactitude": 0.7077625570776256,
+      "ecart_confiance_exactitude": 0.10274596074112963
+    },
+    "Manager (règles)": {
+      "std_moyen_entre_executions": 9.25185853854297e-18,
+      "accord_label_entre_executions": 1.0,
+      "confiance_moyenne": 0.6905371824677264,
+      "exactitude": 0.7894736842105263,
+      "ecart_confiance_exactitude": -0.09893650174279989
+    }
+  },
+  "tests_statistiques": {
+    "S1 Nominal": {
+      "friedman_chi2": 184.60330810204647,
+      "friedman_p": 1.1106276060631358e-35,
+      "meilleure": "OWA (la plupart)",
+      "rangs_moyens": {
+        "Dempster": 5.53,
+        "Yager": 6.25,
+        "Dubois-Prade": 5.85,
+        "Murphy": 5.37,
+        "Moyenne floue": 1.95,
+        "OWA (la plupart)": 1.73,
+        "OWA (au moins un)": 6.67,
+        "Choquet": 2.75,
+        "Mamdani": 8.9
+      },
+      "wilcoxon_holm_vs_meilleure": {
+        "Dempster": 1.862645149230957e-08,
+        "Yager": 1.4901161193847656e-08,
+        "Dubois-Prade": 1.4901161193847656e-08,
+        "Murphy": 1.1342473773959267e-05,
+        "Moyenne floue": 0.025355785453459113,
+        "OWA (au moins un)": 1.1342473773959267e-05,
+        "Choquet": 0.000917063018810048,
+        "Mamdani": 1.4901161193847656e-08
+      }
+    },
+    "S2 Conflit élevé": {
+      "friedman_chi2": 128.4921700223714,
+      "friedman_p": 5.80899480979076e-24,
+      "meilleure": "OWA (la plupart)",
+      "rangs_moyens": {
+        "Dempster": 5.12,
+        "Yager": 5.3,
+        "Dubois-Prade": 5.88,
+        "Murphy": 4.57,
+        "Moyenne floue": 2.95,
+        "OWA (la plupart)": 2.07,
+        "OWA (au moins un)": 7.75,
+        "Choquet": 3.5,
+        "Mamdani": 7.87
+      },
+      "wilcoxon_holm_vs_meilleure": {
+        "Dempster": 2.0578503608703613e-05,
+        "Yager": 1.9278377294540405e-06,
+        "Dubois-Prade": 1.8887221813201904e-06,
+        "Murphy": 0.0002219233503257573,
+        "Moyenne floue": 0.021377131075546316,
+        "OWA (au moins un)": 5.606561899185181e-07,
+        "Choquet": 0.0019035488367080688,
+        "Mamdani": 1.4901161193847656e-08
+      }
+    },
+    "S3 Agent surconfiant": {
+      "friedman_chi2": 195.481958041958,
+      "friedman_p": 5.716203813327756e-38,
+      "meilleure": "OWA (la plupart)",
+      "rangs_moyens": {
+        "Dempster": 5.35,
+        "Yager": 5.8,
+        "Dubois-Prade": 5.57,
+        "Murphy": 5.15,
+        "Moyenne floue": 2.13,
+        "OWA (la plupart)": 1.72,
+        "OWA (au moins un)": 7.93,
+        "Choquet": 2.6,
+        "Mamdani": 8.75
+      },
+      "wilcoxon_holm_vs_meilleure": {
+        "Dempster": 5.21540641784668e-08,
+        "Yager": 3.3527612686157227e-08,
+        "Dubois-Prade": 5.587935447692871e-08,
+        "Murphy": 4.6566128730773926e-08,
+        "Moyenne floue": 0.038778840103678686,
+        "OWA (au moins un)": 1.4901161193847656e-08,
+        "Choquet": 0.008063588291406631,
+        "Mamdani": 1.4901161193847656e-08
+      }
+    },
+    "S4 Ignorance forte": {
+      "friedman_chi2": 179.31466965285563,
+      "friedman_p": 1.4339416408152464e-34,
+      "meilleure": "OWA (la plupart)",
+      "rangs_moyens": {
+        "Dempster": 5.48,
+        "Yager": 4.75,
+        "Dubois-Prade": 5.9,
+        "Murphy": 6.23,
+        "Moyenne floue": 2.13,
+        "OWA (la plupart)": 1.55,
+        "OWA (au moins un)": 6.93,
+        "Choquet": 3.18,
+        "Mamdani": 8.83
+      },
+      "wilcoxon_holm_vs_meilleure": {
+        "Dempster": 1.4901161193847656e-08,
+        "Yager": 1.862645149230957e-08,
+        "Dubois-Prade": 2.2351741790771484e-08,
+        "Murphy": 7.66856107374067e-06,
+        "Moyenne floue": 0.03888725999898262,
+        "OWA (au moins un)": 1.4901161193847656e-08,
+        "Choquet": 7.951357683760873e-05,
+        "Mamdani": 1.4901161193847656e-08
+      }
+    },
+    "S5 Agents biaisés": {
+      "friedman_chi2": 177.9590462833099,
+      "friedman_p": 2.761378846283774e-34,
+      "meilleure": "OWA (la plupart)",
+      "rangs_moyens": {
+        "Dempster": 5.67,
+        "Yager": 5.58,
+        "Dubois-Prade": 5.82,
+        "Murphy": 5.68,
+        "Moyenne floue": 2.25,
+        "OWA (la plupart)": 1.68,
+        "OWA (au moins un)": 6.78,
+        "Choquet": 2.67,
+        "Mamdani": 8.87
+      },
+      "wilcoxon_holm_vs_meilleure": {
+        "Dempster": 2.60770320892334e-08,
+        "Yager": 2.60770320892334e-08,
+        "Dubois-Prade": 2.7939677238464355e-08,
+        "Murphy": 7.67372890836125e-06,
+        "Moyenne floue": 0.06136666240521491,
+        "OWA (au moins un)": 7.450580596923828e-08,
+        "Choquet": 0.003551574531172728,
+        "Mamdani": 1.4901161193847656e-08
+      }
+    },
+    "S6 Interactions": {
+      "friedman_chi2": 159.576944599888,
+      "friedman_p": 1.960671876403675e-30,
+      "meilleure": "Choquet",
+      "rangs_moyens": {
+        "Dempster": 5.2,
+        "Yager": 5.8,
+        "Dubois-Prade": 5.5,
+        "Murphy": 5.27,
+        "Moyenne floue": 2.78,
+        "OWA (la plupart)": 2.5,
+        "OWA (au moins un)": 7.13,
+        "Choquet": 2.05,
+        "Mamdani": 8.77
+      },
+      "wilcoxon_holm_vs_meilleure": {
+        "Dempster": 5.21540641784668e-07,
+        "Yager": 4.0046870708465576e-07,
+        "Dubois-Prade": 2.123415470123291e-07,
+        "Murphy": 2.521024722158778e-05,
+        "Moyenne floue": 0.0029520748144370094,
+        "OWA (la plupart)": 0.10240264917150628,
+        "OWA (au moins un)": 1.4901161193847656e-08,
+        "Mamdani": 1.4901161193847656e-08
+      }
+    },
+    "effet_mode_fiabilite": {
+      "Dempster": {
+        "calibrées vs égales": {
+          "diff_moy": 0.0020655270655270583,
+          "p": 0.620236130399342,
+          "p_holm": 1.0
+        },
+        "calibrées vs déclarées": {
+          "diff_moy": 0.011339031339031339,
+          "p": 5.056201645115538e-06,
+          "p_holm": 9.101162961207968e-05
+        },
+        "optimisées vs calibrées": {
+          "diff_moy": 0.005569800569800569,
+          "p": 1.2392358257710749e-05,
+          "p_holm": 0.00021067009038108273
+        }
+      },
+      "Yager": {
+        "calibrées vs égales": {
+          "diff_moy": 0.02326210826210826,
+          "p": 5.938452386507037e-17,
+          "p_holm": 1.5439976204918294e-15
+        },
+        "calibrées vs déclarées": {
+          "diff_moy": 0.03263532763532763,
+          "p": 1.6607097261932144e-21,
+          "p_holm": 4.4839162607216786e-20
+        },
+        "optimisées vs calibrées": {
+          "diff_moy": -0.002250712250712251,
+          "p": 0.10408941983027718,
+          "p_holm": 1.0
+        }
+      },
+      "Dubois-Prade": {
+        "calibrées vs égales": {
+          "diff_moy": 0.007621082621082619,
+          "p": 0.0002835330011579981,
+          "p_holm": 0.003969462016211974
+        },
+        "calibrées vs déclarées": {
+          "diff_moy": 0.012037037037037037,
+          "p": 1.1991497712305549e-07,
+          "p_holm": 2.3982995424611097e-06
+        },
+        "optimisées vs calibrées": {
+          "diff_moy": 0.003490028490028501,
+          "p": 0.0002531809553756769,
+          "p_holm": 0.003797714330635153
+        }
+      },
+      "Murphy": {
+        "calibrées vs égales": {
+          "diff_moy": -0.0017806267806267813,
+          "p": 0.12663899331745684,
+          "p_holm": 1.0
+        },
+        "calibrées vs déclarées": {
+          "diff_moy": 0.0009829059829059878,
+          "p": 0.8655338272196619,
+          "p_holm": 1.0
+        },
+        "optimisées vs calibrées": {
+          "diff_moy": 0.006937321937321938,
+          "p": 1.1697917030712156e-09,
+          "p_holm": 2.690520917063796e-08
+        }
+      },
+      "Moyenne floue": {
+        "calibrées vs égales": {
+          "diff_moy": 0.008262108262108263,
+          "p": 2.2719526049500256e-10,
+          "p_holm": 5.452686251880062e-09
+        },
+        "calibrées vs déclarées": {
+          "diff_moy": 0.009301994301994297,
+          "p": 2.9718244349331814e-09,
+          "p_holm": 6.538013756852998e-08
+        },
+        "optimisées vs calibrées": {
+          "diff_moy": -0.0025641025641025563,
+          "p": 0.00018749816576936397,
+          "p_holm": 0.0029999706523098236
+        }
+      },
+      "OWA (la plupart)": {
+        "calibrées vs égales": {
+          "diff_moy": 0.0042592592592592595,
+          "p": 0.000566592999757998,
+          "p_holm": 0.007365708996853975
+        },
+        "calibrées vs déclarées": {
+          "diff_moy": 0.007678062678062676,
+          "p": 3.4234233470503034e-07,
+          "p_holm": 6.504504359395577e-06
+        },
+        "optimisées vs calibrées": {
+          "diff_moy": -0.0006980056980056986,
+          "p": 0.1017446671190696,
+          "p_holm": 1.0
+        }
+      },
+      "OWA (au moins un)": {
+        "calibrées vs égales": {
+          "diff_moy": 0.0,
+          "p": 1.0,
+          "p_holm": 1.0
+        },
+        "calibrées vs déclarées": {
+          "diff_moy": 0.0,
+          "p": 1.0,
+          "p_holm": 1.0
+        },
+        "optimisées vs calibrées": {
+          "diff_moy": 0.0,
+          "p": 1.0,
+          "p_holm": 1.0
+        }
+      },
+      "Choquet": {
+        "calibrées vs égales": {
+          "diff_moy": 0.008276353276353272,
+          "p": 3.425727354451913e-09,
+          "p_holm": 7.194027444349017e-08
+        },
+        "calibrées vs déclarées": {
+          "diff_moy": 0.01001424501424501,
+          "p": 3.0614286848077447e-12,
+          "p_holm": 7.653571712019361e-11
+        },
+        "optimisées vs calibrées": {
+          "diff_moy": -0.0009401709401709411,
+          "p": 0.23349915372686747,
+          "p_holm": 1.0
+        }
+      },
+      "Mamdani": {
+        "calibrées vs égales": {
+          "diff_moy": 0.0037321754517757586,
+          "p": 0.003650023571445844,
+          "p_holm": 0.043800282857350124
+        },
+        "calibrées vs déclarées": {
+          "diff_moy": 0.0017521184717187758,
+          "p": 0.5688610125421163,
+          "p_holm": 1.0
+        },
+        "optimisées vs calibrées": {
+          "diff_moy": -0.0024644148850144426,
+          "p": 0.007658051435543206,
+          "p_holm": 0.08423856579097526
+        }
+      }
+    }
+  },
+  "grille_explicabilite": {
+    "criteres": [
+      "Intervalle d'incertitude",
+      "Traçabilité des agents",
+      "Exposition du conflit",
+      "Règles lisibles",
+      "Comportement prévisible",
+      "Parcimonie",
+      "Compréhension non-expert"
+    ],
+    "scores": {
+      "Dempster": [
+        2,
+        1,
+        2,
+        0,
+        0,
+        2,
+        1
+      ],
+      "Yager": [
+        2,
+        1,
+        2,
+        0,
+        2,
+        2,
+        1
+      ],
+      "Dubois-Prade": [
+        2,
+        1,
+        2,
+        0,
+        2,
+        2,
+        1
+      ],
+      "Murphy": [
+        2,
+        1,
+        2,
+        0,
+        1,
+        2,
+        1
+      ],
+      "Moyenne floue": [
+        1,
+        2,
+        1,
+        0,
+        2,
+        2,
+        2
+      ],
+      "OWA (la plupart)": [
+        1,
+        1,
+        1,
+        1,
+        2,
+        1,
+        1
+      ],
+      "OWA (au moins un)": [
+        1,
+        1,
+        0,
+        1,
+        1,
+        2,
+        1
+      ],
+      "Choquet": [
+        1,
+        2,
+        1,
+        0,
+        2,
+        0,
+        0
+      ],
+      "Mamdani": [
+        1,
+        1,
+        1,
+        2,
+        1,
+        0,
+        2
+      ]
+    }
+  },
+  "duree_s": 3427.455883741379
+}

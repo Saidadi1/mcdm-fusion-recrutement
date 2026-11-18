@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.streamlit/
+.venv/
+venv/
+*.egg-info/
+~$*.docx
+~$*.pptx
+.DS_Store
+Thumbs.db
